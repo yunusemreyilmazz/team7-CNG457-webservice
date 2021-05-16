@@ -23,7 +23,7 @@ public class Computer {
     private int memory;
     private int StorageCapacity;
 
-    private String additionalFeatures;
+
 
 
 

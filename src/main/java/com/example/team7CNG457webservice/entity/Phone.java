@@ -20,7 +20,7 @@ public class Phone {
 
     private int internalMemory;
 
-    private String additionalFeatures;
+    
 
 
 
