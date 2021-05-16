@@ -10,6 +10,7 @@ public class CommentID implements Serializable {
     @Column (name = "ProductID")
     int ProductID;
 
+    @Column (name = "UserEmail")
+    String UserEmail;
 
-    //Add user PK.
 }

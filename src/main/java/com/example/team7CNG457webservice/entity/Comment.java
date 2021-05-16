@@ -26,6 +26,8 @@ public class Comment {
     @JoinColumn (name = "ProductID", insertable = false, updatable = false)
     private Product product;
 
-    //Add user here.
+    @ManyToOne
+    @JoinColumn (name = "UserEmail", insertable = false, updatable = false)
+    private User user;
 
 }

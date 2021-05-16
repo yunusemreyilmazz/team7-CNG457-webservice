@@ -33,4 +33,6 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     List<Comment> comments;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    List<AdditionalFeature> additionalFeatures;
 }
