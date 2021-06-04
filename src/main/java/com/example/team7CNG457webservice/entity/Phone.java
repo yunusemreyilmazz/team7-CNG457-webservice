@@ -20,9 +20,6 @@ public class Phone {
 
     private int internalMemory;
 
-    
-
-
 
 
     @ManyToOne

@@ -14,8 +14,10 @@ import java.util.Date;
 @Table(name = "Comments")
 public class Comment {
 
-    @EmbeddedId
-    CommentID id;
+    @Id
+    @Column(name = "CommentID",nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int comment_id;
 
     private int Rate;
     private Date date;
@@ -26,8 +28,5 @@ public class Comment {
     @JoinColumn (name = "ProductID", insertable = false, updatable = false)
     private Product product;
 
-    @ManyToOne
-    @JoinColumn (name = "UserEmail", insertable = false, updatable = false)
-    private User user;
 
 }

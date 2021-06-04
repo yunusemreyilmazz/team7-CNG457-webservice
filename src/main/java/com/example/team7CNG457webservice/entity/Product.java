@@ -34,5 +34,5 @@ public class Product {
     List<Comment> comments;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    List<AdditionalFeature> additionalFeatures;
+    List<AdditionalFeatureLine> additionalFeatureLines;
 }

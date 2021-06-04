@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,8 +21,8 @@ public class AdditionalFeature {
 
     private String additionalFeature;
 
-    @ManyToOne
-    @JoinColumn(name = "ProductID", insertable = false, updatable = false)
-    private Product product;
+
+    @OneToMany(mappedBy = "additionalFeature", cascade = CascadeType.ALL)
+    private List<AdditionalFeatureLine> additionalFeatureLines;
 
 }
