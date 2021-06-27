@@ -1,5 +1,6 @@
 package com.example.team7CNG457webservice.controller;
 
+
 import com.example.team7CNG457webservice.entity.Phone;
 import com.example.team7CNG457webservice.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +10,13 @@ import java.util.List;
 
 @RestController
 public class PhoneController {
+
     @Autowired
     PhoneService phoneService;
 
-    @PostMapping("/addphone")
-    public Phone savePhone(@RequestBody Phone phone){
-        //phone.setProduct(phone.getProduct());
-        return phoneService.savePhone(phone);
+    @PostMapping("/addPhone")
+    public Phone savePhone(@RequestBody Phone c){
+        return phoneService.savePhone(c);
     }
 
     @GetMapping("/getphone/{id}")
@@ -33,5 +34,6 @@ public class PhoneController {
     public List<Phone> getPhonesByBrand(@PathVariable String brand){
         return phoneService.getPhonesByBrand(brand);
     }
+
 
 }

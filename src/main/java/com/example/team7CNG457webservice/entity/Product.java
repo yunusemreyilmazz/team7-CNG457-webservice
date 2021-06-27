@@ -1,41 +1,45 @@
 package com.example.team7CNG457webservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Products")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "product_id")
 public class Product {
+
     @Id
-    @Column(name = "ProductID",nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="ProductID")
+    private int productID;
 
-    private String brand;
-    private String model;
-    private int screenSize;
     private int price;
+    private int screenSize;
+    private String model;
+    private String brand;
+
+
+    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)
+    private Computer computer;
 
 
 
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-    Computer computer;
 
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-    Phone phone;
+    @OneToMany(mappedBy = "product")
+    List<Comments> com;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    List<Comment> comments;
+    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)
+    private Phone  phone;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    List<AdditionalFeatureLine> additionalFeatureLines;
+
+
+    @ManyToMany(mappedBy = "product")
+    private List<AdditionalFeatures> additionalFeatures;
+
 }

@@ -5,22 +5,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
+
 
 @Data
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class Phone {
+@AllArgsConstructor
+@Entity
+public class Comments {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int phoneID;
+    private int commentID;
+    private String commentText;
+    private int rate;
+    private Date date;
 
-    private int internalMemory;
-
-
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     Product product;
 
 }
