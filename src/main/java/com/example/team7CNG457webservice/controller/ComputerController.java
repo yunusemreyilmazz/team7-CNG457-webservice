@@ -1,7 +1,7 @@
 package com.example.team7CNG457webservice.controller;
 
+
 import com.example.team7CNG457webservice.entity.Computer;
-import com.example.team7CNG457webservice.entity.Phone;
 import com.example.team7CNG457webservice.service.ComputerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +13,9 @@ public class ComputerController {
     @Autowired
     ComputerService computerService;
 
-    @PostMapping("/addcomputer")
-    public Computer saveComputer(@RequestBody Computer computer){
-        return computerService.saveComputer(computer);
+    @PostMapping("/addComputer")
+    public Computer saveComputer(@RequestBody Computer c){
+        return computerService.saveComputer(c);
     }
 
     @GetMapping("/getcomputer/{id}")
