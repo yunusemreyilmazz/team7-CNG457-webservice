@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ComputerRepository extends JpaRepository <Computer, Integer> {
 
-
+    @Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
     @Query(value = "SELECT c.* from Computers c, Products pr where pr.productid=c.product_productid and pr.brand=?1",nativeQuery = true)
     public List<Computer> getComputersByBrand(String brand);
 

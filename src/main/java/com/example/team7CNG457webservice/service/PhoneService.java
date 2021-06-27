@@ -17,23 +17,23 @@ public class PhoneService {
     PhoneRepository phoneRepository;
 
 
-
+    @Lock(LockModeType.PESSIMISTIC_READ)
     public Phone savePhone(Phone p){
         return phoneRepository.save(p);
     }
 
-
+    @Lock(LockModeType.PESSIMISTIC_READ)
     public Phone getPhone(int id){
         return phoneRepository.findById(id).orElse(null);
     }
 
 
-
+    @Lock(LockModeType.PESSIMISTIC_READ)
     public List<Phone> getAllPhones(){
         return  phoneRepository.findAll();
     }
 
-
+    @Lock(LockModeType.PESSIMISTIC_READ)
     public List<Phone> getPhonesByBrand(String brand){
         return phoneRepository.getPhonesByBrand(brand);
     }
